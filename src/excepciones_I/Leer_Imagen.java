@@ -34,8 +34,10 @@ class MarcoImagen extends JFrame {
 class LaminaConImagen extends JPanel {
 
 	public LaminaConImagen() {
+		
+		//EXCEPCION TIPO COMPROBADO, SOLUCION TRY CATCH
 		try {
-			imagen = ImageIO.read(new File("src/excepciones/icono.gif"));
+			imagen = ImageIO.read(new File("src/excepciones_i/icono.gif"));
 		} catch (IOException e) {
 			System.out.println("No se encontro la imagen!");
 		}
@@ -45,6 +47,7 @@ class LaminaConImagen extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
+//		EXCEPCION TIPO NO COMPROBADO, SOLUCION IF ELSE
 		if (imagen == null) {
 			g.drawString("No podemos cargar la imagen", 10, 10);
 		} else {
