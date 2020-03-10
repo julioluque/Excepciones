@@ -10,17 +10,17 @@ public class Comprueba_mail {
 		// TODO Auto-generated method stub
 
 		String mi_mail = JOptionPane.showInputDialog("Introduce tu mail");
+		
 		try {
 			examina_mail(mi_mail);
-			
-		} catch (EOFException e) {
-			
+		} catch (Exception e) {
 			System.out.println("la direccion de email no es correcta!");
+			e.printStackTrace();
 		}
 
 	}
 
-	static void examina_mail(String mail) throws EOFException {
+	static void examina_mail(String mail) throws LongitudMailErroneo{
 
 		int arroba = 0;
 		boolean punto = false;
@@ -29,8 +29,10 @@ public class Comprueba_mail {
 
 //			ArrayIndexOutOfBoundsException miExcepcion = new ArrayIndexOutOfBoundsException();
 //			throw miExcepcion;
-
-			throw new EOFException();
+			
+//			throw new EOFException();
+			
+			throw new LongitudMailErroneo("El mailno puede tener menos de 3 caracteres...");
 
 		} else {
 
@@ -52,4 +54,14 @@ public class Comprueba_mail {
 		}
 	}
 
+}
+
+class LongitudMailErroneo extends Exception {
+	
+	public LongitudMailErroneo() {}
+	
+	public LongitudMailErroneo(String mensajeError) {
+		super(mensajeError);
+	}
+	
 }
