@@ -16,11 +16,11 @@ public class EntradaDatos {
 		
 		if (decision == 1) {
 		
-//			try {
+			try {
 				pedirDatos();
-//			} catch (IOException e) {
-//				System.out.println("Que demonios ingresaste en la edad?");
-//			}
+			} catch (Exception e) {
+				System.out.println("Que demonios ingresaste en la edad?");
+			}
 		
 		} else {
 			
@@ -33,9 +33,9 @@ public class EntradaDatos {
 
 	}
 	
-	static void pedirDatos() throws InputMismatchException {
+	static void pedirDatos() throws IOException {
 		
-		try {
+//		try {
 			Scanner entrada = new Scanner(System.in);
 			
 			System.out.println("Ingresar nombre: ");
@@ -50,9 +50,9 @@ public class EntradaDatos {
 			
 			entrada.close();
 
-		} catch (Exception e) {
-			System.out.println("Que ingresaste en la edad??!!");			
-		}
+//		} catch (Exception e) {
+//			System.out.println("Que ingresaste en la edad??!!");			
+//		}
 		System.out.println("Programa terminado!");
 		
 	}
