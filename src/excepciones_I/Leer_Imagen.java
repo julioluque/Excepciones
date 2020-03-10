@@ -34,23 +34,26 @@ class MarcoImagen extends JFrame {
 class LaminaConImagen extends JPanel {
 
 	public LaminaConImagen() {
-		
-		//EXCEPCION TIPO COMPROBADO, SOLUCION TRY CATCH
+
+		// EXCEPCION TIPO COMPROBADO, SOLUCION TRY CATCH
 		try {
-			imagen = ImageIO.read(new File("src/excepciones_i/icono.gif"));
+			imagen = ImageIO.read(new File("src/excepciones_i/icondo.gif"));
 		} catch (IOException e) {
 			System.out.println("No se encontro la imagen!");
 		}
 
 	}
 
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) throws NullPointerException{
 		super.paintComponent(g);
 
 //		EXCEPCION TIPO NO COMPROBADO, SOLUCION IF ELSE
-		if (imagen == null) {
-			g.drawString("No podemos cargar la imagen", 10, 10);
-		} else {
+//		if (imagen == null) {
+//			g.drawString("No podemos cargar la imagen", 10, 10);
+//		} else {
+		
+		try {
+			
 			int anchuraImagen = imagen.getWidth(this);
 			int alturaImagen = imagen.getHeight(this);
 
@@ -60,14 +63,16 @@ class LaminaConImagen extends JPanel {
 				for (int j = 0; j < 300; j++) {
 					if (i + j > 0) {
 						g.copyArea(0, 0, anchuraImagen, alturaImagen, anchuraImagen * i, alturaImagen * j);
-
 					}
 				}
 			}
-
+		} catch(NullPointerException e) {
+			g.drawString("No se pudo cargar la imagen en las coordenadas 10, 10", 10, 10);
 		}
 
 	}
+
+//	}
 
 	private Image imagen;
 
