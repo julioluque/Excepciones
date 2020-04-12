@@ -1,7 +1,5 @@
 package excepciones_I;
 
-import java.io.EOFException;
-
 import javax.swing.JOptionPane;
 
 public class Comprueba_mail {
@@ -14,7 +12,7 @@ public class Comprueba_mail {
 		try {
 			examina_mail(mi_mail);
 		} catch (Exception e) {
-			System.out.println("la direccion de email no es correcta!");
+			System.out.println("la direccion de email no es correcta! ");
 			e.printStackTrace();
 		}
 
@@ -27,12 +25,7 @@ public class Comprueba_mail {
 
 		if (mail.length() <= 3) {
 
-//			ArrayIndexOutOfBoundsException miExcepcion = new ArrayIndexOutOfBoundsException();
-//			throw miExcepcion;
-			
-//			throw new EOFException();
-			
-			throw new LongitudMailErroneo("El mailno puede tener menos de 3 caracteres...");
+			throw new LongitudMailErroneo("El mail no puede tener menos de 3 caracteres...");
 
 		} else {
 
